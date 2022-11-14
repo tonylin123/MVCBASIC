@@ -24,4 +24,13 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
+app.MapControllerRoute(
+           name: "CheckFever",
+           pattern: "CheckFever",
+           defaults: new { controller = "Doctor", action = "CheckFever" });
+
+app.MapControllerRoute(
+                   name: "GuessingGame",
+                   pattern: "GuessingGame",
+                   defaults: new { controller = "GuessingGame", action = "GuessingGame" });
 app.Run();
