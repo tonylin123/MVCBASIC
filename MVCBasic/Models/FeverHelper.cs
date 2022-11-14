@@ -16,6 +16,10 @@ namespace MVCBasic.Models
             {
                 return "You have a fever!";
             }
+            if (temperature < 34.5)
+            {
+                return "You have a hypothermia!";
+            }
             else
             {
                 return "You are good!";
