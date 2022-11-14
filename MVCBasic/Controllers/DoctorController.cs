@@ -21,7 +21,7 @@ namespace MVCBasic.Controllers
                 try
                 {
                     ViewBag.Msg = FeverHelper.Diagnose(temp);
-                    return View("Result");
+                    return View();
                 }
                 catch
                 {
