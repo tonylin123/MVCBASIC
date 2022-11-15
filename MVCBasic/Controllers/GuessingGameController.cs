@@ -1,42 +1,35 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using MVCBasic.Models;
 
 namespace MVCBasic.Controllers
 {
     public class GuessingGameController : Controller
     {
+        Random rnd = new Random();
+        
         [HttpGet]
         public IActionResult GuessingGame()
         {
-
             int Guesses = 0;
-            Random random = new Random();
-            HttpContext.Session.SetInt32("Number", random.Next(1, 100));
+            HttpContext.Session.SetInt32("number", rnd.Next(1, 100));
             HttpContext.Session.SetInt32("Guesses", Guesses);
             return View();
         }
+
         [HttpPost]
         public IActionResult GuessingGame(int guess)
         {
+
             int guesses = (int)HttpContext.Session.GetInt32("Guesses");
             guesses++;
             HttpContext.Session.SetInt32("Guesses", guesses);
             ViewBag.Guesses = guesses;
-            int number = (int)HttpContext.Session.GetInt32("Number");
-            if (guess > number)
+            ViewBag.Msg = GuessingGameHelper.checkGuess((int)HttpContext.Session.GetInt32("number"), guess);
+            if (guess == (int)HttpContext.Session.GetInt32("number"))
             {
-                ViewBag.Msg = "Too high!";
-                return View();
+                HttpContext.Session.SetInt32("number", rnd.Next(1, 100));
             }
-            else if (guess < number)
-            {
-                ViewBag.Msg = "Too low!";
-                return View();
-            }
-            else
-            {
-                return View("Win");
-            }
+            return View();
         }
-
     }
 }

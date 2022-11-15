@@ -5,10 +5,11 @@
 }
 <form method="POST" class="form">
     <label for="guess">Guess a number between, 1-100</label>
-    <input type="text" id="guess" name="guess" />
-    <input type="submit" />
+    <input type="number" name="guess">
+    <input type="submit" value="Submit">
+    <p>Number of guesses: @ViewBag.Guesses</p>
 </form>
-
-<h3>@ViewBag.Msg</h3>
-
-<h3>Number of guesses: @ViewBag.Guesses</h3>
+@if (ViewBag.Msg != null)
+{
+        <div>@ViewBag.Msg</div>
+}
