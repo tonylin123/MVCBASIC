@@ -6,7 +6,7 @@ namespace MVCBasic.Models
     {
         
         public static string checkGuess(int number, int guess)
-        { //
+        { 
             if (number > guess)
             {
                 return $"Too low, guessed number: {guess}.";
