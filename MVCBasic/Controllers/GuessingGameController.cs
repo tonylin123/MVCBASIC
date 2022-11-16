@@ -6,11 +6,12 @@ namespace MVCBasic.Controllers
     public class GuessingGameController : Controller
     {
         Random rnd = new Random();
-        
+        int guesses = 0;
         [HttpGet]
         public IActionResult GuessingGame()
         {
             int Guesses = 0;
+            
             HttpContext.Session.SetInt32("number", rnd.Next(1, 100));
             HttpContext.Session.SetInt32("Guesses", Guesses);
             return View();
@@ -32,12 +33,14 @@ namespace MVCBasic.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult Clear()
+        public IActionResult Restart()
         {
             ViewBag.Guesses = string.Empty;
             ViewBag.Msg = string.Empty;
-
-            return View("GuessingGame", GuessingGame());
+            int Guesses = 0;
+            HttpContext.Session.SetInt32("number", rnd.Next(1, 100));
+            HttpContext.Session.SetInt32("Guesses", Guesses);
+            return View("GuessingGame");
         }
     }
 }

@@ -6,8 +6,8 @@
 <form method="POST" class="form">
     <label for="guess">Guess a number between, 1-100</label>
     <input type="number" name="guess">
-    <input type="submit" value="Submit">
-    <input type="submit" value="Restart">
+    <input type="submit" value="Submit" formaction="GuessingGame">
+    <input type="submit" value="Restart" formaction="Restart" />
     <p>Number of guesses: @ViewBag.Guesses</p>
 </form>
 
