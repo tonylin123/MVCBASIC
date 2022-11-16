@@ -31,5 +31,13 @@ namespace MVCBasic.Controllers
             }
             return View();
         }
+        [HttpPost]
+        public IActionResult Clear()
+        {
+            ViewBag.Guesses = string.Empty;
+            ViewBag.Msg = string.Empty;
+
+            return View("GuessingGame", GuessingGame());
+        }
     }
 }

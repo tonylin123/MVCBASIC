@@ -7,8 +7,10 @@
     <label for="guess">Guess a number between, 1-100</label>
     <input type="number" name="guess">
     <input type="submit" value="Submit">
+    <input type="submit" value="Restart">
     <p>Number of guesses: @ViewBag.Guesses</p>
 </form>
+
 @if (ViewBag.Msg != null)
 {
         <div>@ViewBag.Msg</div>
