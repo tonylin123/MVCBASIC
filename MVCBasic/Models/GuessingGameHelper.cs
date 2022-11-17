@@ -15,7 +15,7 @@ namespace MVCBasic.Models
             {
                 return $"Too high, guessed number: {guess}.";
             }
-            return $"Congratulation! Right guessed nubmer: {guess}!";
+            return $"Congratulation! Right guessed nubmer: {guess}! The game has been reset";
         }
 
     }
